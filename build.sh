@@ -20,7 +20,7 @@ while getopts 'p:g:n:' OPT; do
 done
 
 if [ $with_gpu == "true" ]; then
-  docker build -t ${img_name} --build-arg web_port=${port} -f ./Dockerfile.gpu .;
+  docker build -t ${img_name} --build-arg in_port=${port:=8500} -f ./Dockerfile.gpu .;
 else
-  docker build -t ${img_name} --build-arg web_port=${port} -f ./Dockerfile .;
+  docker build -t ${img_name} --build-arg in_port=${port:=8500} -f ./Dockerfile .;
 fi

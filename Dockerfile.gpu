@@ -1,6 +1,6 @@
 FROM tensorflow/serving:latest-devel-gpu
-ARG port
-ENV port=$port
+ARG in_port
+ENV port=$in_port
 
 WORKDIR /
 COPY models ./

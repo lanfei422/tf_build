@@ -1,10 +1,10 @@
 FROM tensorflow/serving:latest-devel
-ARG port
-ENV port=$port
+ARG in_port
+ENV port=$in_port
 
-WORKDIR /
+WORKDIR /models
 COPY models ./
 COPY models.conf ./
 EXPOSE $port
 
-CMD ["sh","-c","tensorflow_model_server --port=$port --model_config_file=/models.conf"]
+CMD ["sh","-c","tensorflow_model_server --port=$port --model_config_file=/models/models.conf"]
